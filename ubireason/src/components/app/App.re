@@ -1,3 +1,4 @@
+
 open Api;
 
 type state = {
@@ -25,13 +26,14 @@ let reducer = (state, action) => {
 
 [@react.component]
 let make = () => {
-    
+    open AppStyles;
     let (state, dispatch) = React.useReducer(reducer, state);
 
-    <div>
-        <form onSubmit = {(ev) => {
+    <div className=AppStyles.main>
+        <img className=AppStyles.logo src="https://i.imgur.com/gNeWm5H.png"/> // TODO: Move to static
+        <form className=AppStyles.form onSubmit = {(ev) => {
                 ReactEvent.Form.preventDefault(ev);
-                Js.log("Searching player " ++ state.input);
+                Js.log("Searching players " ++ state.input);
 
                 let _ = Api.searchPlayer(state.input)
                 |> Js.Promise.then_((results) => {
@@ -39,30 +41,36 @@ let make = () => {
                     Js.Promise.resolve();
                 });
             }}>
-            <input id="search" name="search"
+            <input className=AppStyles.formInput id="search" name="search"
                 placeholder="Player name"
                 value=state.input
                 onChange={(ev) => {
                     let value = ReactEvent.Form.target(ev)##value;
                     dispatch(UpdateInput(value));
                 }}/>
-            <button type_="submit">{ReasonReact.string("Search Player")} </button>
+            <button 
+            className=AppStyles.formButton 
+            style=(
+                ReactDOMRe.Style.make(~fontVariant="all-petite-caps",~cursor="pointer",())
+            )
+            type_="submit">{ReasonReact.string("Search Players")} </button>
         </form>
 
-        <div>
+        <div className=AppStyles.playerContainer>
+            <div className=AppStyles.playerCount>{ReasonReact.string("Found "++string_of_int(List.length(state.players))++" players")}</div>
             {
-                state.isLoading ?
-                <div>{ReasonReact.string("Searching player...")}</div>
-                : (
-                    //<div>{ReasonReact.string("Found ")}</div>
+                state.isLoading ? (
+                    <div>{ReasonReact.string("Searching players...")}</div>
+                ) : 
+                {
                     state.players
                     |> Array.of_list
-                    |> Array.map(({id, name, level}) =>{
+                    |> Array.map(({id, name, level}) => {
                         let level = string_of_int(level);
                         <Player key=id id name level/>
                     })
                     |> ReasonReact.array
-                )
+                }
             }
         </div>
     </div>

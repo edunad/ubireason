@@ -7,14 +7,14 @@ type playerInfo = {
 }
 
 type thunt = {
-    kills: int,
-    deaths: int,
-    wins: int,
-    losses: int,
-    melees: int,
-    played: int,
-    bullets: int,
-    headshots: int
+    kills: option(int),
+    deaths: option(int),
+    wins: option(int),
+    losses: option(int),
+    melees: option(int),
+    played: option(int),
+    bullets: option(int),
+    headshots: option(int)
 }
 
 type playerThunt = {
@@ -42,14 +42,14 @@ module Api = {
 
     let decodePlayerThunt = json =>
         Json.Decode.{
-            kills: json |> field("kills", int),
-            deaths: json |> field("deaths", int),
-            wins: json |> field("wins", int),
-            losses: json |> field("losses", int),
-            melees: json |> field("melees", int),
-            played: json |> field("played", int),
-            bullets: json |> field("bullets", int),
-            headshots: json |> field("headshots", int)
+            kills: Some(json |> field("kills", int)),
+            deaths: Some(json |> field("deaths", int)),
+            wins: Some(json |> field("wins", int)),
+            losses: Some(json |> field("losses", int)),
+            melees: Some(json |> field("melees", int)),
+            played: Some(json |> field("played", int)),
+            bullets: Some(json |> field("bullets", int)),
+            headshots: Some(json |> field("headshots", int))
         };
 
     let getPlayerThunt = (guid) => 
