@@ -8,5 +8,5 @@
 ### How to setup
 1. Navigate to the ubireason folder (next to package.json) and run the following
 2. `npm i`
-3. `npm start`
-4. `npm run dev` (on a seperate console)
+3. `npm run build`
+4. `npm start` (on a seperate console)
