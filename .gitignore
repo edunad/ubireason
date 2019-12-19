@@ -8,3 +8,4 @@ node_modules
 .bsb.lock
 npm-debug.log
 lib
+*.bs.js
