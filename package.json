@@ -4,8 +4,9 @@
   "scripts": {
     "build": "bsb -make-world",
     "clean": "bsb -clean-world",
+    "start": "moduleserve ./ --port 8080",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm install -g bs-platform && npm install && npm run-script build"
+    "heroku-postbuild": "npm install && npm run-script build"
   },
   "keywords": [
     "BuckleScript",
