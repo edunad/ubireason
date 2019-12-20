@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/Index.bs.js',
     mode: 'production',
     output: {
-        path: path.join(__dirname, '.bin'),
+        path: path.join(__dirname, 'public_html'),
         filename: 'index.js',
     },
     plugins: [
