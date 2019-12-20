@@ -5,6 +5,8 @@
 
 > Uses `r6tab` API to check out `Rainbow six siege` stats
 
+## Demo: https://ubireason.herokuapp.com/
+
 ### How to setup
 1. Navigate to the ubireason folder (next to package.json) and run the following
 2. `npm i`
