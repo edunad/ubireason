@@ -2,19 +2,14 @@
   "name": "ubireason",
   "version": "0.1.0",
   "scripts": {
-    "build": "bsb -make-world",
+    "start": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
-    "deploy": "webpack --config webpack.config.js --progress",
+    "deploy": "bsb -make-world && webpack --config webpack.config.js --progress",
     "dev": "moduleserve ./",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm install && npm run build && npm run deploy"
+    "heroku-postbuild": "npm install && npm run deploy"
   },
-  "keywords": [
-    "BuckleScript",
-    "ReasonReact",
-    "reason-react"
-  ],
-  "author": "",
+  "author": "edunad",
   "license": "MIT",
   "dependencies": {
     "@glennsl/bs-json": "^5.0.1",
@@ -25,6 +20,7 @@
   },
   "devDependencies": {
     "bs-platform": "^7.0.1",
+    "copy-webpack-plugin": "^5.1.1",
     "moduleserve": "^0.9.1",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
