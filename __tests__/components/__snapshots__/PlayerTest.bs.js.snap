@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player component renders successfully 1`] = `
+<div>
+  <div
+    class="css-17pdym4"
+  >
+    <div
+      class="css-1xhj18k"
+    >
+      <img
+        class="css-kgitkj"
+        src="https://ubisoft-avatars.akamaized.net/test/default_256_256.png"
+      />
+      <div
+        class="css-1ciuei8"
+      >
+        test
+      </div>
+      <div
+        class="css-bt7wyo"
+      >
+        Level 20
+      </div>
+    </div>
+    <button
+      class="css-jt13s3"
+      style="cursor: pointer; font-variant: all-petite-caps;"
+    >
+      Load statistics
+    </button>
+  </div>
+</div>
+`;

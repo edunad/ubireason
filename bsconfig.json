@@ -1,23 +1,32 @@
 {
-  "name": "ubireason",
-  "reason": {
-    "react-jsx": 3
-  },
-  "sources": {
-    "dir" : "src",
-    "subdirs" : true
-  },
-  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
-  "package-specs": [{
+    "name": "ubireason",
+    "reason": {
+        "react-jsx": 3
+    },
+    "sources": [
+        {
+            "dir" : "src",
+            "subdirs" : true
+        },
+        {
+            "dir" : "__tests__",
+            "subdirs" : true
+        }
+    ],
+    "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
+    "package-specs": [{
     "module": "commonjs",
-    "in-source": true
-  }],
-  "suffix": ".bs.js",
-  "namespace": true,
-  "bs-dependencies": [
-    "reason-react",
-    "@glennsl/bs-json",
-    "bs-css"
-  ],
-  "refmt": 3
+        "in-source": true
+    }],
+    "suffix": ".bs.js",
+    "namespace": true,
+    "bs-dependencies": [
+        "reason-react",
+        "@glennsl/bs-json",
+        "bs-css",
+        "@glennsl/bs-jest",
+        "bs-dom-testing-library",
+        "bs-react-testing-library"
+    ],
+    "refmt": 3
 }

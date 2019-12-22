@@ -6,7 +6,7 @@
     "clean": "bsb -clean-world",
     "deploy": "bsb -make-world && webpack --config webpack.config.js --progress",
     "dev": "moduleserve ./",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bsb -make-world && jest",
     "heroku-postbuild": "npm install && npm run deploy"
   },
   "author": "edunad",
@@ -19,8 +19,12 @@
     "reason-react": ">=0.7.0"
   },
   "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.9",
+    "bs-dom-testing-library": "^0.5.1",
     "bs-platform": "^7.0.1",
+    "bs-react-testing-library": "^0.6.0",
     "copy-webpack-plugin": "^5.1.1",
+    "jest": "^24.9.0",
     "moduleserve": "^0.9.1",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
