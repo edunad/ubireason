@@ -15,7 +15,7 @@ let state = {
 
 let reducer = (state, action) => {
     switch(action) {
-        | UpdateExtraData(extraData) => {...state, extraData: Some(extraData)}
+        | UpdateExtraData(extraData) => {extraData: Some(extraData)}
     }
 };
 
@@ -36,33 +36,41 @@ let make = (~id, ~name, ~level) => {
                     <div className=PlayerStyles.extraInfoContainer>
                         {switch (info.wins) {
                             | Some(wins) => <Info name="Wins" value=wins />
+                            | None => <Info name="Wins" value=0 />
                         }}
                         {switch (info.losses) {
                             | Some(losses) => <Info name="Losses" value=losses />
+                            | None => <Info name="Losses" value=0 />
                         }}
 
 
                         {switch (info.kills) {
                             | Some(kills) => <Info name="Kills" value=kills />
+                            | None => <Info name="Kills" value=0 />
                         }}
                         {switch (info.deaths) {
                             | Some(deaths) => <Info name="Deaths" value=deaths />
+                            | None => <Info name="Deaths" value=0 />
                         }}
 
 
                         {switch (info.melees) {
                             | Some(melees) => <Info name="Melees" value=melees />
+                            | None => <Info name="Melees" value=0 />
                         }}
                         {switch (info.bullets) {
                             | Some(bullets) => <Info name="Bullets" value=bullets />
+                            | None => <Info name="Bullets" value=0 />
                         }}
 
                         {switch (info.played) {
                             | Some(played) => <Info name="Played" value=played />
+                            | None => <Info name="Played" value=0 />
                         }}
 
                         {switch (info.headshots) {
                             | Some(headshots) => <Info name="Headshots" value=headshots />
+                            | None => <Info name="Headshots" value=0 />
                         }}
                     </div>
                 | None => {

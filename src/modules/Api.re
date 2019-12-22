@@ -26,31 +26,29 @@ module Api = {
 
     let decodePlayerInfo = 
         field("results",
-        list(
-            optional(json => {
-                id: field("p_id", string, json),
-                name: field("p_name", string, json),
-                level: field("p_level", int, json),
-            })
-        )
-    );
+            list(
+                optional(json => {
+                    id: field("p_id", string, json),
+                    name: field("p_name", string, json),
+                    level: field("p_level", int, json),
+                })
+            )
+        );
 
-    let decodePlayerData = json =>
-        Json.Decode.{
-            rawThunt: json |> field("thunt", string)
-        };
+    let decodePlayerData = json => {
+        rawThunt: json |> field("thunt", string)
+    };
 
-    let decodePlayerThunt = json =>
-        Json.Decode.{
-            kills: Some(json |> field("kills", int)),
-            deaths: Some(json |> field("deaths", int)),
-            wins: Some(json |> field("wins", int)),
-            losses: Some(json |> field("losses", int)),
-            melees: Some(json |> field("melees", int)),
-            played: Some(json |> field("played", int)),
-            bullets: Some(json |> field("bullets", int)),
-            headshots: Some(json |> field("headshots", int))
-        };
+    let decodePlayerThunt = json => {
+        kills: Some(json |> field("kills", int)),
+        deaths: Some(json |> field("deaths", int)),
+        wins: Some(json |> field("wins", int)),
+        losses: Some(json |> field("losses", int)),
+        melees: Some(json |> field("melees", int)),
+        played: Some(json |> field("played", int)),
+        bullets: Some(json |> field("bullets", int)),
+        headshots: Some(json |> field("headshots", int))
+    };
 
     let getPlayerThunt = (guid) => 
         Js.Promise.(
