@@ -26,7 +26,7 @@ let make = (~id, ~name, ~level) => {
 
     <div className=PlayerStyles.main>
         <div className=PlayerStyles.infoContainer>
-            <img className=PlayerStyles.avatar src={j|https://ubisoft-avatars.akamaized.net/$id/default_256_256.png|j}/>
+            <img className=PlayerStyles.avatar src={j|https://ubisoft-avatars.akamaized.net/$id.png|j}/>
             <div className=PlayerStyles.username>{ReasonReact.string(name)}</div>
             <div className=PlayerStyles.level>{ReasonReact.string("Level "++level)}</div>
         </div>
