@@ -27,7 +27,7 @@
     "jest": "^24.9.0",
     "moduleserve": "^0.9.1",
     "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.12"
   },
   "engines": {
     "node": "12.x"
